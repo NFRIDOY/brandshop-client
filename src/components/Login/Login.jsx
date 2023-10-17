@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 
 export default function Login() {
+    const { test, count, setCount, createUserByEmail, signInGoogle } = useContext(AuthContext)
+    
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target;

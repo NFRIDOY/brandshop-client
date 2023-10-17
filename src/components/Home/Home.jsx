@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 
 export default function Home() {
-    const { test, count, setCount } = useContext(AuthContext)
+    const { test, count, setCount, createUserByEmail, signInGoogle } = useContext(AuthContext)
     return (
         <div>
             <Banner></Banner>

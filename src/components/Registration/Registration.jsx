@@ -1,12 +1,51 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { getAuth, updateProfile } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 
 export default function Registration() {
+    const { test, count, setCount, createUserByEmail, signInGoogle } = useContext(AuthContext)
+    const auth = getAuth(app);
+
     const handleReg = (e) => {
         e.preventDefault()
         const form = e.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const image = form.image.value;
+
+        createUserByEmail(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user)
+
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: image
+                }).then(() => {
+                    // Profile updated!
+                    // ...
+                    alert("Profile Photo updated!")
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                    alert("Error")
+                });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+
+                console.log(errorCode)
+                console.log(errorMessage)
+                alert("Registration Failed")
+            });
+
+
+
     }
     return (
         <div>
