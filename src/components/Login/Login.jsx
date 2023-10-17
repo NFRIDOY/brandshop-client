@@ -28,6 +28,11 @@ export default function Login() {
                 console.log(errorMessage)
                 alert("Login Failed")
             });
+            
+    }
+
+    const hangleGoogleSignIn = () => {
+        signInGoogle()
     }
     return (
         <div>
@@ -58,11 +63,11 @@ export default function Login() {
                                 <button className="btn btn-accent text-white hover:bg-black hover:border-black" type="submit">Login</button>
                             </div>
                             <div className="form-control mt-6">
-                                <Link to={'/registration'} className="btn btn-primary text-white hover:bg-black hover:border-black" type="submit">Need An Account? Register</Link>
+                                <Link to={'/registration'} className="btn btn-primary text-white hover:bg-black hover:border-black" >Need An Account? Register</Link>
                             </div>
                             <span className="text-center">OR</span>
                             <div className="form-control mt-1">
-                                <button className="btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" type="submit">Google</button>
+                                <button onClick={signInGoogle} className="btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" >Google</button>
                             </div>
 
                         </form>

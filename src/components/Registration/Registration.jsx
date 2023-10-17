@@ -94,7 +94,7 @@ export default function Registration() {
                                 <button className="btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" type="submit">Google</button>
                             </div> */}
                             <div className="form-control mt-1">
-                                <Link to={'/login'} className="btn btn-primary text-white hover:bg-black hover:border-black" type="submit">Have Account? Login</Link>
+                                <Link to={'/login'} className="btn btn-primary text-white hover:bg-black hover:border-black">Have Account? Login</Link>
                             </div>
                         </form>
                     </div>
