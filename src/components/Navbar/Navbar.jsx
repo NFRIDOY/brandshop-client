@@ -66,7 +66,7 @@ export default function Navbar() {
                         </ul>
                     </div>
                     <Link to={'/'} className="btn btn-ghost normal-case text-xl">
-                        <img className="h-10 w-14" src={logo} alt="" /> <span className="text-4xl font-black">Technology</span>
+                        <img className="h-10 w-14" src={logo} alt="" /> <span className="md:text-4xl font-black">Technology</span>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -125,7 +125,7 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <a className="btn">Login</a>
                 </div>
             </div>
         </div>
