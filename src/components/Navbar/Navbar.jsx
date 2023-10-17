@@ -129,7 +129,7 @@ export default function Navbar() {
                 </div>
                 <div className="navbar-end">
                     {
-                        currentUser?.uid ? <a className="btn" onClick={signOutUser}>Log Out</a> : <a className="btn" onClick={signOutUser}>Log In</a>
+                        currentUser?.uid ? <a className="btn" onClick={signOutUser}>Log Out</a> : <Link to={'/login'} className="btn" >Log In</Link>
                     }
                     
                     {/* <a className="btn" onClick={() => setCount(count+1)}>Sign Out { count }</a> */}
