@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '/Logo.png'
+import { AuthContext } from "../Provider/AuthProvider";
+import { useContext } from "react";
 
 
 export default function Navbar() {
+    const { test, count, setCount } = useContext(AuthContext)
     return (
         <div className="max-w-7xl mx-auto p-8 text-center">
             <div className="navbar bg-base-100">
@@ -125,7 +128,7 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Login</a>
+                    <a className="btn" onClick={() => setCount(count+1)}>Login { count }</a>
                 </div>
             </div>
         </div>
