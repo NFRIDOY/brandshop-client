@@ -1,7 +1,11 @@
+import Banner from "../Banner/Banner";
 
 
 export default function Home() {
     return (
-        <div>Home</div>
+        <div>
+            <Banner></Banner>
+            Home
+        </div>
     )
 }

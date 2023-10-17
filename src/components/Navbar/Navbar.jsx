@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
+import logo from '/Logo.png'
 
 
 export default function Navbar() {
     return (
-        <div>
+        <div className="max-w-7xl mx-auto p-8 text-center">
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -65,7 +65,9 @@ export default function Navbar() {
 
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link to={'/'} className="btn btn-ghost normal-case text-xl">
+                        <img className="h-10 w-14" src={logo} alt="" /> <span className="text-4xl font-black">Technology</span>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
