@@ -4,13 +4,30 @@ import { useContext } from "react";
 
 
 export default function Login() {
-    const { test, count, setCount, createUserByEmail, signInGoogle } = useContext(AuthContext)
+    const { test, currentUser, setCurrentUser, signInByEmail, signInGoogle } = useContext(AuthContext)
 
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value
         const password = form.password.value
+
+        signInByEmail(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                console.log(user)
+                alert("Login")
+                setCurrentUser(user)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                alert("Login Failed")
+            });
     }
     return (
         <div>

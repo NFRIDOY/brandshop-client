@@ -6,7 +6,7 @@ import app from "../../firebase/firebase.config";
 
 
 export default function Registration() {
-    const { test, count, setCount, createUserByEmail, signInGoogle } = useContext(AuthContext)
+    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle } = useContext(AuthContext)
     const auth = getAuth(app);
 
     const handleReg = (e) => {
