@@ -16,6 +16,7 @@ import PrivateRoutes from "./components/Provider/PrivateRoutes.jsx";
 import BrandProducts from "./components/BrandProducts/BrandProducts.jsx";
 import Error from "./components/Error/Error.jsx"
 import DataNotFound from "./components/Error/DataNotFound.jsx";
+import ProductUpdate from "./components/ProductUpdate/ProductUpdate.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
         path: "/products/:brandName",
         loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`),
         element: <PrivateRoutes><BrandProducts></BrandProducts></PrivateRoutes>,
+        errorElement: <DataNotFound></DataNotFound>,
+      },
+      {
+        path: "/products/:updateId",
+        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.updateId}`),
+        element: <PrivateRoutes><ProductUpdate></ProductUpdate></PrivateRoutes>,
         errorElement: <DataNotFound></DataNotFound>,
       },
       {
