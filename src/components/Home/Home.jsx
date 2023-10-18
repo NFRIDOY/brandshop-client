@@ -31,7 +31,7 @@ export default function Home() {
                 {
                     brandsLoaderData && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-16">
                         {
-                            brandNames ? brandNames?.map(brand => <BrandNameCard key={brand._id} brand={brand} ></BrandNameCard>) : <Loading></Loading>
+                            brandNames ? brandNames?.map(brand => <BrandNameCard key={brand._id} brand={brand} ></BrandNameCard>) :  <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
                         }
                     </div>
                 }
