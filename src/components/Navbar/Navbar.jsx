@@ -131,7 +131,7 @@ export default function Navbar() {
 
                     <span>
                         {
-                            currentUser?.uid && <span className="mx-1">
+                            currentUser?.uid && <span className="mx-1 font-bold">
                                 {currentUser?.displayName}
                             </span>
                         }
@@ -143,9 +143,9 @@ export default function Navbar() {
                             </span>
                         }
                     </span>
-                    {/* {
-                        currentUser?.uid ? <a className="btn btn-ghost text-error" onClick={signOutUser}>Log Out</a> : <Link to={'/login'} className="btn" >Log In</Link>
-                    } */}
+                    {
+                        currentUser?.uid ? <button className="rounded-md btn-ghost font-bold text-red-600 text-sm p-2 " onClick={signOutUser}>Log Out</button> : <Link to={'/login'} className="btn" >Log In</Link>
+                    }
 
                     {/* <a className="btn" onClick={() => setCount(count+1)}>Sign Out { count }</a> */}
                 </div>
