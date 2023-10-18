@@ -15,6 +15,7 @@ import AuthProvider from "./components/Provider/AuthProvider.jsx";
 import PrivateRoutes from "./components/Provider/PrivateRoutes.jsx";
 import BrandProducts from "./components/BrandProducts/BrandProducts.jsx";
 import Error from "./components/Error/Error.jsx"
+import DataNotFound from "./components/Error/DataNotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         // loader: ({params}) => console.log(params.brandName),
         element: <PrivateRoutes><BrandProducts></BrandProducts></PrivateRoutes>,
         // loader: ({params}) => fetch(`https://brandshop-server-three.vercel.app/products/${params}`)
-        // errorElement: <Error></Error>,
+        errorElement: <DataNotFound></DataNotFound>,
       },
       {
         path: "/myCart",
