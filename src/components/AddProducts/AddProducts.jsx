@@ -1,46 +1,54 @@
 
 
 export default function AddProducts() {
-    const handleAddCoffee = (e) => {
+    const handleAddProduct = (e) => {
         e.preventDefault();
         console.log("Add Coffee");
         const form = e.target;
 
+        const image = form.Image.value;
         const name = form.Name.value;
-        const quantity = form.Quantity.value; // Should Be A number but string
-        const supplier = form.Supplier.value;
-        const taste = form.Taste.value;
-        const category = form.Category.value;
-        const details = form.Details.value;
-        const photo = form.Photo.value;
+        const brandName = form.BrandName.value; // Should Be A number but string
+        const type = form.Type.value;
+        const price = form.Price.value;
+        const shortDescription = form.ShortDescription.value;
+        const rating = form.Rating.value;
 
         // Output
+        console.log(image)
         console.log(name)
-        console.log(quantity)
-        console.log(supplier)
-        console.log(taste)
-        console.log(category)
-        console.log(details)
-        console.log(photo)
+        console.log(brandName)
+        console.log(type)
+        console.log(price)
+        console.log(shortDescription)
+        console.log(rating)
 
         // Product object
-        const newCoffee = { name, quantity, supplier, taste, category, details, photo }
-        console.log(newCoffee)
+        const newProduct = {
+            image,
+            name,
+            brandName,
+            type,
+            price,
+            shortDescription,
+            rating
+        }
+        console.log(newProduct)
 
-        fetch('http://localhost:5000/addCoffee', {
+        fetch('https://brandshop-server-three.vercel.app/addProducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newCoffee)
+            body: JSON.stringify(newProduct)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("Coffee Added")
+                    alert("Product Added")
                 }
                 else {
-                    alert("Failed")
+                    alert("Product Add Failed")
                 }
                 console.log(data)
             })
@@ -56,11 +64,11 @@ export default function AddProducts() {
                     {/* <p>
                         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.
                     </p> */}
-                    <form className="md:p-10" onSubmit={handleAddCoffee}>
+                    <form className="md:p-10" onSubmit={handleAddProduct}>
                         <div className="grid grid-cols-1 md:grid-cols-1 gap-y-6">
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Image</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0 " name="Name" placeholder="Image" />
+                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0 " name="Image" placeholder="Image" />
                             </div>
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Name</label>
@@ -87,7 +95,7 @@ export default function AddProducts() {
                                 <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="Rating" placeholder="Rating" />
                             </div>
                             <div className=" mt-12 flex flex-col items-start w-full gap-3">
-                                <button className="btn btn-success p-4 rounded-md w-full md:w-11/12  mr-0 text-white">Add Product</button>
+                                <button className="btn btn-success p-4 rounded-md w-full md:w-11/12  mr-0 text-white" type="submit">Add Product</button>
                             </div>
                         </div>
                         {/* <div className="md:pr-10">
