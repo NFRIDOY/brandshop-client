@@ -1,17 +1,20 @@
 
 // BrandProductCard
 export default function ProductCard({ product }) {
-    const { image, name, brandName, type, price, shortDescription, rating } = product
-    console.log(product)
+    const {_id, image, name, brandName, type, price, shortDescription, rating } = product
+    // console.log(product)
+    const handleUpdate = () => {
+        
+    }
     return (
-        <div>
+        <div className="w-[50vh]">
             <div className="card w-fit bg-base-200 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={image} alt="Product" className="rounded-xl object-cover h-96 w-96" />
+                    <img src={image} alt="Product" className="rounded-xl object-cover h-72" />
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-4xl">{name}</h2>
-                    <p className="text-gray-500">{shortDescription}</p>
+                    <p className="text-gray-500 overflow-auto">{shortDescription}</p>
                     <div className="card-title flex justify-between w-full px-8 my-4">
                         <h2 className="flex justify-start">Brand: {brandName}</h2>
                         <h2 className="flex justify-end">Type: {type}</h2>
@@ -31,7 +34,7 @@ export default function ProductCard({ product }) {
 
                     <div className="card-actions">
                         <button className="btn btn-secondary text-white">Details</button>
-                        <button className="btn btn-success text-white">Update</button>
+                        <button className="btn btn-success text-white" onClick={() => handleUpdate(_id)}>Update</button>
                     </div>
                 </div>
             </div>

@@ -37,9 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/products/:brandName",
         loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`),
-        // loader: ({params}) => console.log(params.brandName),
         element: <PrivateRoutes><BrandProducts></BrandProducts></PrivateRoutes>,
-        // loader: ({params}) => fetch(`https://brandshop-server-three.vercel.app/products/${params}`)
         errorElement: <DataNotFound></DataNotFound>,
       },
       {
