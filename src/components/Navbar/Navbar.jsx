@@ -128,10 +128,25 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {
-                        currentUser?.uid ? <a className="btn" onClick={signOutUser}>Log Out</a> : <Link to={'/login'} className="btn" >Log In</Link>
-                    }
-                    
+
+                    <span>
+                        {
+                            currentUser?.uid && <span className="mx-1">
+                                {currentUser?.displayName}
+                            </span>
+                        }
+                    </span>
+                    <span className="avatar placeholder ">
+                        {
+                            currentUser?.uid && <span onClick={signOutUser} className="mx-1  w-8" >
+                                <img className=" bg-neutral-focus text-neutral-content rounded-full ring ring-accent hover:ring-error ring-offset-base-100 ring-offset-2" src={currentUser?.photoURL} alt="" />
+                            </span>
+                        }
+                    </span>
+                    {/* {
+                        currentUser?.uid ? <a className="btn btn-ghost text-error" onClick={signOutUser}>Log Out</a> : <Link to={'/login'} className="btn" >Log In</Link>
+                    } */}
+
                     {/* <a className="btn" onClick={() => setCount(count+1)}>Sign Out { count }</a> */}
                 </div>
             </div>
