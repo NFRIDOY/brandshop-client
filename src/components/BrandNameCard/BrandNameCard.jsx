@@ -8,7 +8,7 @@ export default function BrandNameCard({ brand }) {
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure>
                 <Link to={`/products/${brandName}`}>
-                    <img src={brandImage} className="object-cover h-80" alt="Shoes" />
+                    <img src={brandImage} className="object-cover h-80" alt="Product" />
                 </Link>
             </figure>
             <div className="card-body">
