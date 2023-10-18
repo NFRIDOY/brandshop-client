@@ -21,6 +21,7 @@ export default function Registration() {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user)
+                setCurrentUser(user)
 
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: image

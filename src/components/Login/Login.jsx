@@ -67,7 +67,7 @@ export default function Login() {
                             </div>
                             <span className="text-center">OR</span>
                             <div className="form-control mt-1">
-                                <button onClick={signInGoogle} className="btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" >Google</button>
+                                <button onClick={hangleGoogleSignIn} className="btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" >Google</button>
                             </div>
 
                         </form>
