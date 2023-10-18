@@ -14,45 +14,47 @@ import Registration from "./components/Registration/Registration.jsx";
 import AuthProvider from "./components/Provider/AuthProvider.jsx";
 import PrivateRoutes from "./components/Provider/PrivateRoutes.jsx";
 import BrandProducts from "./components/BrandProducts/BrandProducts.jsx";
+import Error from "./components/Error/Error.jsx"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    // errorElement: <Error></Error>,
     children: [
       {
         path: "/",
-        loader: () => fetch("https://brandshop-server-three.vercel.app/brandNames"),
+        loader: async () => await fetch("https://brandshop-server-three.vercel.app/brandNames"),
         element: <Home></Home>,
-
+        // errorElement: <Error></Error>,
       },
       {
         path: "/addProducts",
         element: <PrivateRoutes><AddProducts></AddProducts></PrivateRoutes>,
-
+        // errorElement: <Error></Error>,
       },
       {
         path: "/products/:brandName",
-        loader: ({params}) => fetch(`http://localhost:5000/products/${params.brandName}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`),
         // loader: ({params}) => console.log(params.brandName),
         element: <PrivateRoutes><BrandProducts></BrandProducts></PrivateRoutes>,
         // loader: ({params}) => fetch(`https://brandshop-server-three.vercel.app/products/${params}`)
-
+        // errorElement: <Error></Error>,
       },
       {
         path: "/myCart",
         element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
-
+        // errorElement: <Error></Error>,
       },
       {
         path: "/registration",
         element: <Registration></Registration>,
-
+        // errorElement: <Error></Error>,
       },
       {
         path: "/login",
         element: <Login></Login>,
-
+        // errorElement: <Error></Error>,
       },
     ]
 

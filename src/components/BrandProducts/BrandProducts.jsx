@@ -14,6 +14,7 @@ export default function BrandProducts() {
     //     .then(data => console.log(data))
     const [brandProducts, setBrandProducts] = useState(brandProductsLoaderData)
     console.log(brandProducts)
+
     return (
         <div>
             {/* {brandProducts.length} */}
@@ -45,13 +46,16 @@ export default function BrandProducts() {
 
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto">
-                    <h1 className="my-8 text-7xl text-center font-bold">{brandProducts[0].brandName} Products</h1>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-16">
-                        {
-                            brandProducts?.map(brand => <ProductCard key={brand} brand={brand}></ProductCard>)
-                        }
-                    </div>
+                <div className="max-w-7xl mx-auto mb-10">
+                    <h1 className="my-16 text-7xl text-center font-bold">{brandProducts[0].brandName} Products</h1>
+                    {
+                        brandProducts.length && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-y-16 w-fit gap-x-20 mx-auto">
+                            {
+                                brandProducts?.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
+                                // brandProducts?.map(product => ` A ${product}`)
+                            }
+                        </div>
+                    }
                 </div>
             </div>
         </div>
