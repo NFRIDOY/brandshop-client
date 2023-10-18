@@ -7,19 +7,23 @@ export const AuthContext = createContext(null)
 
 export default function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
+    const [loading, setLoading] = useState(true);
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
 
     const createUserByEmail = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const signInByEmail = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const signInGoogle = () => {
+        setLoading(true)
         // return signInWithPopup(auth, googleProvider)
         signInWithPopup(auth, googleProvider)
             .then((result) => {
@@ -45,6 +49,7 @@ export default function AuthProvider({ children }) {
             });
     }
     const signOutUser = () => {
+        setLoading(true)
         signOut(auth).then(() => {
             // Sign-out successful.
             alert("Sign-out successful.")
@@ -59,7 +64,7 @@ export default function AuthProvider({ children }) {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setCurrentUser(currentUser);
             console.log("Current User: ", currentUser);
-            // setLoading(false)
+            setLoading(false)
         })
 
         return () => {
@@ -84,7 +89,7 @@ export default function AuthProvider({ children }) {
 
 
     const test = 10
-    const infoValue = { test, currentUser, setCurrentUser, createUserByEmail, signInByEmail, signInGoogle, signOutUser };
+    const infoValue = { test, currentUser, setCurrentUser, createUserByEmail, signInByEmail, signInGoogle, signOutUser,loading, setLoading };
     return (
         <AuthContext.Provider value={infoValue}>
             {children}

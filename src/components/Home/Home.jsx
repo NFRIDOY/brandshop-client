@@ -3,17 +3,20 @@ import Banner from "../Banner/Banner";
 import { AuthContext } from "../Provider/AuthProvider";
 import { data } from "autoprefixer";
 import BrandNameCard from "../BrandNameCard/BrandNameCard";
+import { useLoaderData } from "react-router-dom";
 
 
 export default function Home() {
-    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle } = useContext(AuthContext)
-    const [brandNames, setBrandNames] = useState([])
-    fetch("http://localhost:5000/brandNames")
-        .then(res => res.json())
-        .then(data => {
-            setBrandNames(data)
-            console.log(data)
-        })
+    const brandsLoaderData = useLoaderData()
+    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle,loading, setLoading } = useContext(AuthContext)
+    const [brandNames, setBrandNames] = useState(brandsLoaderData)
+    // fetch("http://localhost:5000/brandNames")
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setLoading(true)
+    //         setBrandNames(data)
+    //         console.log(data)
+    //     })
     return (
         <div>
             <Banner></Banner>
