@@ -11,11 +11,13 @@ export default function ProductCard({ product }) {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-4xl">{name}</h2>
-                    <h2 className="card-title">Brand: {brandName}</h2>
-                    <h2 className="">Type: {type}</h2>
                     <p className="text-gray-500">{shortDescription}</p>
+                    <div className="card-title flex justify-between w-full px-8 my-4">
+                        <h2 className="flex justify-start">Brand: {brandName}</h2>
+                        <h2 className="flex justify-end">Type: {type}</h2>
+                    </div>
                     <div className=" card-title flex w-full px-8 my-4">
-                        
+
                         <p className="flex items-center justify-start">
                             <span>
                                 Rating: {rating}
