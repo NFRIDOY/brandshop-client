@@ -9,9 +9,9 @@ import { useLoaderData } from "react-router-dom";
 export default function Home() {
     const brandsLoaderData = useLoaderData()
     const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle, loading, setLoading } = useContext(AuthContext)
-    setLoading(true)
+    // setLoading(true)
     const [brandNames, setBrandNames] = useState(brandsLoaderData)
-    setLoading(false)
+    // setLoading(false)
     // fetch("http://localhost:5000/brandNames")
     //     .then(res => res.json())
     //     .then(data => {
@@ -21,8 +21,6 @@ export default function Home() {
     return (
         <div>
             <Banner></Banner>
-            {/* Home {test} */}
-            {loading}
             <div className="max-w-7xl mx-auto p-8 text-center ">
                 <h1 className="my-8 text-8xl font-bold">Our Brands</h1>
                 {

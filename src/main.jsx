@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: async () => await fetch("https://brandshop-server-three.vercel.app/brandNames"),
+        loader: () => fetch("https://brandshop-server-three.vercel.app/brandNames"),
         element: <Home></Home>,
         // errorElement: <Error></Error>,
       },
