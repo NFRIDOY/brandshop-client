@@ -4,14 +4,19 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { data } from "autoprefixer";
 import BrandNameCard from "../BrandNameCard/BrandNameCard";
 import { useLoaderData } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 
 export default function Home() {
     const brandsLoaderData = useLoaderData()
     const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle, loading, setLoading } = useContext(AuthContext)
-    // setLoading(true)
     const [brandNames, setBrandNames] = useState(brandsLoaderData)
-    // setLoading(false)
+    if (brandNames) {
+        setLoading(false)
+    }
+    else {
+        setLoading(true)
+    }
     // fetch("http://localhost:5000/brandNames")
     //     .then(res => res.json())
     //     .then(data => {
@@ -26,7 +31,7 @@ export default function Home() {
                 {
                     brandsLoaderData && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-16">
                         {
-                            brandNames?.map(brand => <BrandNameCard key={brand._id} brand={brand} ></BrandNameCard>)
+                            brandNames ? brandNames?.map(brand => <BrandNameCard key={brand._id} brand={brand} ></BrandNameCard>) : <Loading></Loading>
                         }
                     </div>
                 }
