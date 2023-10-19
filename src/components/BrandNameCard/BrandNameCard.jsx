@@ -5,7 +5,7 @@ export default function BrandNameCard({ brand }) {
     const { _id, brandId, brandImage, brandName } = brand
 
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact md:w-72 lg:w-96 bg-base-100 shadow-xl">
             <figure>
                 <Link to={`/products/${brandName}`}>
                     <img src={brandImage} className="object-cover h-80" alt="Product" />
