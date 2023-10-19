@@ -17,7 +17,7 @@ export default function Home() {
     else {
         setLoading(true)
     }
-    // fetch("http://localhost:5000/brandNames")
+    // fetch("https://brandshop-server-three.vercel.app/brandNames")
     //     .then(res => res.json())
     //     .then(data => {
     //         setBrandNames(data)

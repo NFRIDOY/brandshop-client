@@ -9,7 +9,7 @@ export default function BrandProducts() {
     const brandProductsLoaderData = useLoaderData()
     // const { data } = useParams();
     // console.log(params)
-    // fetch(`http://localhost:5000/products/${brandName}`)
+    // fetch(`https://brandshop-server-three.vercel.app/products/${brandName}`)
     //     .then(res => res.json())
     //     .then(data => console.log(data))
     const [brandProducts, setBrandProducts] = useState(brandProductsLoaderData)

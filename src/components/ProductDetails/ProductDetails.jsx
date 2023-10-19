@@ -17,7 +17,7 @@ export default function ProductDetails() {
         // setCart(cartList)
         // alert("Add To Cart Btn")
 
-        fetch("http://localhost:5000/myCart", {
+        fetch("https://brandshop-server-three.vercel.app/myCart", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

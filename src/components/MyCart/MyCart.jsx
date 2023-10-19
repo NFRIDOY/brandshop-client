@@ -13,7 +13,7 @@ export default function MyCart() {
     // console.log(name)
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/myCart/${id}`, {
+        fetch(`https://brandshop-server-three.vercel.app/myCart/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'application/json'

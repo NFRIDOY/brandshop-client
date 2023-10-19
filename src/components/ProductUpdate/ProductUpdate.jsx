@@ -39,7 +39,7 @@ export default function ProductUpdate() {
         }
         console.log(updatedProduct)
 
-        fetch(`http://localhost:5000/updateProducts/${productData._id}`, {
+        fetch(`https://brandshop-server-three.vercel.app/updateProducts/${productData._id}`, {
         // fetch('https://brandshop-server-three.vercel.app/addProducts', {
             method: 'PUT',
             headers: {
