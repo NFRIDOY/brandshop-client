@@ -1,22 +1,39 @@
 import { useContext } from "react"
 import { useLoaderData } from "react-router-dom"
 import { AuthContext } from "../Provider/AuthProvider"
+import { data } from "autoprefixer"
 
 
 export default function ProductDetails() {
     const productDetailsData = useLoaderData()
     console.log(productDetailsData)
     const { _id, image, name, brandName, type, price, shortDescription, rating } = productDetailsData
-    const {cart, setCart, cartList} = useContext(AuthContext)
+    const { cart, setCart, cartList } = useContext(AuthContext)
     const handleAddToCart = () => {
-        cartList.push(productDetailsData)
-        setCart(cartList)
-        alert("Add To Cart")
+        // cartList.push(productDetailsData)
+        console.log(productDetailsData)
+        const addProductToCart = { product_id:_id, image, name, brandName, type, price, shortDescription, rating}
+        // setCart(cartList)
+        alert("Add To Cart Btn")
+
+        fetch("http://localhost:5000/addToCarts", {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addProductToCart)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                alert("Tring To Add To Cart")
+            })
+
     }
     return (
         <div>
-            
-            <h1 className="text-4xl">Cart List  {cart}</h1>
+
+            {/* <h1 className="text-4xl">Cart List  {cart}</h1> */}
             {/* <h1 className="text-4xl">ProductDetails {productDetailsData?._id} {cartList.legnth} </h1> */}
             <div className="max-w-7xl mx-auto my-10 ">
                 <div><img className=" object-cover h-96 w-full rounded-t-lg" src={image} alt="" /></div>
@@ -46,7 +63,7 @@ export default function ProductDetails() {
                                     <th>{shortDescription}</th>
                                     <th>{rating}</th>
                                     <th>
-                                        <button onClick={handleAddToCart}>Add To Cart </button>
+                                        <button className="btn btn-primary text-white hover:btn-error" onClick={handleAddToCart}>Add To Cart </button>
                                     </th>
                                 </tr>
                             </tbody>
