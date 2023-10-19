@@ -2,7 +2,7 @@ import { Link, Navigate } from "react-router-dom"
 
 // BrandProductCard
 export default function ProductCard({ product }) {
-    const {_id, image, name, brandName, type, price, shortDescription, rating } = product
+    const { _id, image, name, brandName, type, price, shortDescription, rating } = product
     // console.log(product)
     const handleUpdate = () => {
         <Navigate to={`/products/${_id}`}></Navigate>
@@ -35,7 +35,9 @@ export default function ProductCard({ product }) {
 
                     <div className="card-actions">
                         <button className="btn btn-secondary text-white">Details</button>
-                        <button className="btn btn-success text-white" onClick={() => handleUpdate(_id)}>Update</button>
+                        <Link to={`/updateProduct/${_id}`}>
+                            <button className="btn btn-success text-white" >Update</button>
+                        </Link>
                     </div>
                 </div>
             </div>

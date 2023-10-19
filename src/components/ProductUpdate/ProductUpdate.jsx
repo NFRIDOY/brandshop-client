@@ -1,6 +1,9 @@
+import { useLoaderData } from "react-router-dom";
 
 
 export default function ProductUpdate() {
+    const productData = useLoaderData()
+    console.log(productData)
     const handleUpdateProduct = (e) => {
         e.preventDefault();
         console.log("Add Coffee");
@@ -35,8 +38,9 @@ export default function ProductUpdate() {
         }
         console.log(newProduct)
 
-        fetch('https://brandshop-server-three.vercel.app/addProducts', {
-            method: 'POST',
+        fetch(`http://localhost:5000/updateProducts/${productData._id}`, {
+        // fetch('https://brandshop-server-three.vercel.app/addProducts', {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },

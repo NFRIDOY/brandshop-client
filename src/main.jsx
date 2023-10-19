@@ -43,9 +43,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateProducts/:updateId",
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.updateId}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/updateProducts/${params.updateId}`),
         element: <PrivateRoutes><ProductUpdate></ProductUpdate></PrivateRoutes>,
-        errorElement: <DataNotFound></DataNotFound>,
+        // errorElement: <DataNotFound></DataNotFound>,
       },
       {
         path: "/myCart",
