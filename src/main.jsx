@@ -24,19 +24,19 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    // errorElement: <Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
         // loader: () => fetch("https://brandshop-server-three.vercel.app/brandNames"),
         loader: () => fetch("http://localhost:5000/brandNames"),
         element: <Home></Home>,
-        // errorElement: <Error></Error>,
+        errorElement: <Error></Error>,
       },
       {
         path: "/addProducts",
         element: <PrivateRoutes><AddProducts></AddProducts></PrivateRoutes>,
-        // errorElement: <Error></Error>,
+        errorElement: <Error></Error>,
       },
       {
         path: "/products/:brandName",
@@ -63,17 +63,17 @@ const router = createBrowserRouter([
         path: "/myCart",
         loader: () => fetch("http://localhost:5000/myCart"),
         element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
-        // errorElement: <Error></Error>,
+        errorElement: <Error></Error>,
       },
       {
         path: "/registration",
         element: <Registration></Registration>,
-        // errorElement: <Error></Error>,
+        errorElement: <Error></Error>,
       },
       {
         path: "/login",
         element: <Login></Login>,
-        // errorElement: <Error></Error>,
+        errorElement: <Error></Error>,
       },
     ]
 
