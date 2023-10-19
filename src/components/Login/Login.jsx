@@ -28,6 +28,14 @@ export default function Login() {
                 console.log(errorCode)
                 console.log(errorMessage)
                 toast.error("Login Failed")
+                toast.error("Incorrect Email Or Password")
+                // toast.error(errorMessage)
+                // if(errorMessage == "Firebase: Error (auth/invalid-login-credentials).") {
+                //     toast.error("Login Failed For Email")
+                // }
+                // else {
+                //     toast.error("Login Failed Other")
+                // }
             });
             
     }
