@@ -11,12 +11,12 @@ export default function ProductDetails() {
     const { cart, setCart, cartList } = useContext(AuthContext)
     const handleAddToCart = () => {
         // cartList.push(productDetailsData)
-        console.log(productDetailsData)
+        // console.log(productDetailsData)
         const addProductToCart = { product_id:_id, image, name, brandName, type, price, shortDescription, rating}
         // setCart(cartList)
         alert("Add To Cart Btn")
 
-        fetch("http://localhost:5000/addToCarts", {
+        fetch("http://localhost:5000/myCart", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -27,6 +27,12 @@ export default function ProductDetails() {
             .then(data => {
                 console.log(data)
                 alert("Tring To Add To Cart")
+                if(data.insertedId) {
+                    alert("Add To Cart Successfull")
+                }
+                else {
+                    alert("Add To Cart Failed")
+                }
             })
 
     }
