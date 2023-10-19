@@ -1,10 +1,11 @@
+import { Link, Navigate } from "react-router-dom"
 
 // BrandProductCard
 export default function ProductCard({ product }) {
     const {_id, image, name, brandName, type, price, shortDescription, rating } = product
     // console.log(product)
     const handleUpdate = () => {
-        
+        <Navigate to={`/products/${_id}`}></Navigate>
     }
     return (
         <div className="w-[50vh]">
