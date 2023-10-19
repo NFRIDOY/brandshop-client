@@ -14,8 +14,8 @@ export default function MyCart() {
 
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/myCart/${id}`, {
-            method: 'DELETE', 
-            headers: { 
+            method: 'DELETE',
+            headers: {
                 'Content-type': 'application/json'
             },
         })
@@ -24,11 +24,11 @@ export default function MyCart() {
                 // console.log("Tring To Delete")
                 // console.log(data)
                 // console.log(data.deletedCount)
-                if(data.deletedCount>0) {
+                if (data.deletedCount > 0) {
                     toast.success("Deleted")
                     const remainings = cartList.filter(product => product._id !== id)
                     setCartList(remainings)
-                } 
+                }
                 else {
                     toast.error("Failed To Delete")
 
@@ -69,7 +69,9 @@ export default function MyCart() {
                                     <th>{cartItem?.shortDescription}</th>
                                     <th>{cartItem?.rating}</th>
                                     <th>
-                                        <button className="btn bg-red-500 text-white hover:bg-red-600" onClick={() => handleDelete(cartItem._id)}>Delete {cartItem._id} </button>
+                                        <button className="btn bg-red-500 text-white hover:bg-red-600" onClick={() => handleDelete(cartItem._id)}>
+                                            Delete
+                                        </button>
                                     </th>
                                 </tr>)
 
