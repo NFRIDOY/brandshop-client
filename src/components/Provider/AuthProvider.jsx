@@ -8,6 +8,8 @@ export const AuthContext = createContext(null)
 export default function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
     const [loading, setLoading] = useState(true);
+    const [cart, setCart] = useState();
+    const cartList = [];
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
@@ -90,7 +92,7 @@ export default function AuthProvider({ children }) {
 
 
     const test = 10
-    const infoValue = { test, currentUser, setCurrentUser, createUserByEmail, signInByEmail, signInGoogle, signOutUser,loading, setLoading };
+    const infoValue = { test, currentUser, setCurrentUser, createUserByEmail, signInByEmail, signInGoogle, signOutUser,loading, setLoading, cart, setCart, cartList };
     return (
         <AuthContext.Provider value={infoValue}>
             {children}
