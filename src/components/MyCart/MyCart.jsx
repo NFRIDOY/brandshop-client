@@ -37,11 +37,11 @@ export default function MyCart() {
 
     }
 
-    const handleBuyAll = (e) => {
-        e.preventDefault()
-        // const form = e.taget
-        toast.success("Congratulations")
-    }
+    // const handleBuyAll = (e) => {
+    //     e.preventDefault()
+    //     // const form = e.taget
+    //     toast.success("Congratulations")
+    // }
 
 
     return (
