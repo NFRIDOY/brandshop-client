@@ -49,7 +49,7 @@ export default function BrandProducts() {
                 <div className="max-w-7xl mx-auto mb-10">
                     <h1 className="my-16 text-7xl text-center font-bold">{brandProducts[0].brandName} Products</h1>
                     {
-                        brandProducts.length && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-y-16 w-fit gap-x-20 mx-auto">
+                        brandProducts.length && <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-y-16 w-fit gap-x-20 mx-auto">
                             {
                                 brandProducts?.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                                 // brandProducts?.map(product => ` A ${product}`)
