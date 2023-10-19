@@ -10,6 +10,10 @@ export default function Registration() {
     const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle } = useContext(AuthContext)
     const auth = getAuth(app);
 
+    var lengthRegex = /.{6,}/; // At least 8 characters long
+    var uppercaseRegex = /[A-Z]/; // Contains at least one uppercase letter
+    var specialCharRegex = /[^A-Za-z0-9]/; // Contains at least one special character
+
     const handleReg = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -18,35 +22,49 @@ export default function Registration() {
         const password = form.password.value;
         const image = form.image.value;
 
-        createUserByEmail(email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user)
-                setCurrentUser(user)
+        if (!lengthRegex.test(password)) {
+            toast.error("Password must be at least 6 characters long.");
+        }
+        else if (!uppercaseRegex.test(password)) {
+            toast.error("Password must contain at least one uppercase letter.");
+        }
+        else if (!specialCharRegex.test(password)) {
+            toast.error("Password must contain at least one special character.");
+        }
+        else {
+            toast.success("Password is valid!");
+            createUserByEmail(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user)
+                    setCurrentUser(user)
 
-                toast.success("User Created")
-                updateProfile(auth.currentUser, {
-                    displayName: name, photoURL: image
-                }).then(() => {
-                    // Profile updated!
-                    // ...
-                    toast.success("Registration Successfull")
-                }).catch((error) => {
-                    // An error occurred
-                    // ...
-                    toast.error("Error")
-                    toast.error(error)
+                    toast.success("User Created")
+                    updateProfile(auth.currentUser, {
+                        displayName: name, photoURL: image
+                    }).then(() => {
+                        // Profile updated!
+                        // ...
+                        toast.success("Registration Successfull")
+                    }).catch((error) => {
+                        // An error occurred
+                        // ...
+                        toast.error("Error")
+                        toast.error(error)
+                    });
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                    toast.error("Registration Failed")
                 });
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
+        }
 
-                console.log(errorCode)
-                console.log(errorMessage)
-                toast.error("Registration Failed")
-            });
+
 
 
 

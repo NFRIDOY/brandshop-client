@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react"
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import toast from "react-hot-toast";
 
 
 export const AuthContext = createContext(null)
@@ -36,7 +37,7 @@ export default function AuthProvider({ children }) {
                 const user = result.user;
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
-                alert("Google Sign In")
+                toast.success("Google Sign In")
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
@@ -47,17 +48,17 @@ export default function AuthProvider({ children }) {
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 // ...
 
-                alert("Google Sign In Failed")
+                toast.error("Google Sign In Failed")
             });
     }
     const signOutUser = () => {
         setLoading(true)
         signOut(auth).then(() => {
             // Sign-out successful.
-            alert("Sign-out successful.")
+            toast.success("Sign-out successful.")
         }).catch((error) => {
             // An error happened.
-            alert("An error happened.")
+            toast.error("An error happened.")
             console.log(error)
         });
     }
