@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 
 
 export default function AddProducts() {
@@ -45,10 +46,10 @@ export default function AddProducts() {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("Product Added")
+                    toast.success("Product Added")
                 }
                 else {
-                    alert("Product Add Failed")
+                    toast.error("Product Add Failed")
                 }
                 console.log(data)
             })

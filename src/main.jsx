@@ -18,6 +18,7 @@ import Error from "./components/Error/Error.jsx"
 import DataNotFound from "./components/Error/DataNotFound.jsx";
 import ProductUpdate from "./components/ProductUpdate/ProductUpdate.jsx";
 import ProductDetails from "./components/ProductDetails/ProductDetails.jsx";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Toaster
+      position="top-right"
+      reverseOrder={false}
+    />
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>

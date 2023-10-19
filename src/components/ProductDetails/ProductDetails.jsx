@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { useLoaderData } from "react-router-dom"
 import { AuthContext } from "../Provider/AuthProvider"
 import { data } from "autoprefixer"
+import toast from "react-hot-toast"
 
 
 export default function ProductDetails() {
@@ -14,7 +15,7 @@ export default function ProductDetails() {
         // console.log(productDetailsData)
         const addProductToCart = { product_id:_id, image, name, brandName, type, price, shortDescription, rating}
         // setCart(cartList)
-        alert("Add To Cart Btn")
+        // alert("Add To Cart Btn")
 
         fetch("http://localhost:5000/myCart", {
             method: 'POST',
@@ -26,12 +27,14 @@ export default function ProductDetails() {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                alert("Tring To Add To Cart")
+                // alert("Tring To Add To Cart")
                 if(data.insertedId) {
-                    alert("Add To Cart Successfull")
+                    // alert("Add To Cart Successfull")
+                    toast.success('Add To Cart Successfull')
                 }
                 else {
-                    alert("Add To Cart Failed")
+                    toast.error('Add To Cart Failed')
+                    // alert("Add To Cart Failed")
                 }
             })
 

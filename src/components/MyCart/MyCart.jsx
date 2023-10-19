@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "../Provider/AuthProvider"
 import { useLoaderData } from "react-router-dom"
+import toast from "react-hot-toast";
 
 
 export default function MyCart() {
@@ -20,16 +21,16 @@ export default function MyCart() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log("Tring To Delete")
-                console.log(data)
+                // console.log("Tring To Delete")
+                // console.log(data)
                 // console.log(data.deletedCount)
                 if(data.deletedCount>0) {
-                    alert("Deleted")
+                    toast.success("Deleted")
                     const remainings = cartList.filter(product => product._id !== id)
                     setCartList(remainings)
                 } 
                 else {
-                    alert("Failed Delete")
+                    toast.error("Failed To Delete")
 
                 }
             })

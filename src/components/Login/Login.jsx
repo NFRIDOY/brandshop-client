@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 
 
 export default function Login() {
@@ -18,7 +19,7 @@ export default function Login() {
                 const user = userCredential.user;
                 // ...
                 console.log(user)
-                alert("Login")
+                toast.success("Login Successfull")
                 setCurrentUser(user)
             })
             .catch((error) => {
@@ -26,7 +27,7 @@ export default function Login() {
                 const errorMessage = error.message;
                 console.log(errorCode)
                 console.log(errorMessage)
-                alert("Login Failed")
+                toast.error("Login Failed")
             });
             
     }

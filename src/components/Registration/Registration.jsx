@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import toast from "react-hot-toast";
 
 
 export default function Registration() {
@@ -23,16 +24,18 @@ export default function Registration() {
                 console.log(user)
                 setCurrentUser(user)
 
+                toast.success("User Created")
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: image
                 }).then(() => {
                     // Profile updated!
                     // ...
-                    alert("Profile Photo updated!")
+                    toast.success("Registration Successfull")
                 }).catch((error) => {
                     // An error occurred
                     // ...
-                    alert("Error")
+                    toast.error("Error")
+                    toast.error(error)
                 });
             })
             .catch((error) => {
@@ -42,7 +45,7 @@ export default function Registration() {
 
                 console.log(errorCode)
                 console.log(errorMessage)
-                alert("Registration Failed")
+                toast.error("Registration Failed")
             });
 
 

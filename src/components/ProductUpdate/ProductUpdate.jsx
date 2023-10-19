@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 
@@ -50,13 +51,14 @@ export default function ProductUpdate() {
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
-                    alert("Product updated")
+                    toast.success("Product updated")
                 }
                 else if (data.upsertedCount > 0) {
-                    alert("Product updated Failed. Product Inserted")
+                    toast.error("Product updated Failed.")
+                    toast.success("Product Inserted")
                 }
                 else {
-                    alert("Product updated Failed")
+                    toast.error("Product updated Failed.")
                 }
                 console.log(data)
             })
