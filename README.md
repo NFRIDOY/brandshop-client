@@ -1,6 +1,6 @@
 # Project Name: NF Technology
 
-# Live Link: <a href="">NF Technology</a>
+# Live Link: <a href="https://brand-shop-ed6ff.web.app">NF Technology</a>
 
 # Features
 - This website shows top Technology and Electronics brands
