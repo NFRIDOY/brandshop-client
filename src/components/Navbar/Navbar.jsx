@@ -131,14 +131,14 @@ export default function Navbar() {
 
                     <span>
                         {
-                            currentUser?.displayName && <span className="mx-1 font-bold">
+                            currentUser?.displayName && <span className="mx-1 font-bold hidden lg:block">
                                 {currentUser?.displayName}
                             </span>
                         }
                     </span>
                     <span className="avatar placeholder ">
                         {
-                            currentUser?.photoURL && <span onClick={signOutUser} className="mx-1  w-8" >
+                            currentUser?.photoURL && <span onClick={signOutUser} className="mx-1 w-4 lg:w-8" >
                                 <img className=" bg-neutral-focus text-neutral-content rounded-full ring ring-accent hover:ring-error ring-offset-base-100 ring-offset-2" src={currentUser?.photoURL} alt="" />
                             </span>
                         }
