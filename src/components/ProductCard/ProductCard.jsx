@@ -35,7 +35,7 @@ export default function ProductCard({ product }) {
 
                     <div className="card-actions">
                         <button className="btn btn-secondary text-white">Details</button>
-                        <Link to={`/updateProduct/${_id}`}>
+                        <Link to={`/updateProducts/${_id}`}>
                             <button className="btn btn-success text-white" >Update</button>
                         </Link>
                     </div>

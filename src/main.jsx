@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         loader: () => fetch("https://brandshop-server-three.vercel.app/brandNames"),
+        // loader: () => fetch("http://localhost:5000/brandNames"),
         element: <Home></Home>,
         // errorElement: <Error></Error>,
       },
