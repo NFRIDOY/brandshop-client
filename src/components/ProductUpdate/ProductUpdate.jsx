@@ -70,7 +70,7 @@ export default function ProductUpdate() {
         <div className="max-w-6xl mx-auto p-8 text-center">
             <div>
                 <div className="bg-[#f0f4f0] p-10 space-y-10">
-                    <h1 className="text-5xl font-bold">Add New Products</h1>
+                    <h1 className="text-5xl font-bold">Update Products</h1>
                     {/* <p>
                         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.
                     </p> */}

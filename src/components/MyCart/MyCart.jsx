@@ -36,23 +36,33 @@ export default function MyCart() {
             })
 
     }
+
+    const handleBuyAll = (e) => {
+        e.preventDefault()
+        // const form = e.taget
+        toast.success("Congratulations")
+    }
+
+
     return (
         <div>
+            {/* < onSubmit={handleBuyAll}> */}
             <div>
-                <div className="overflow-x-auto">
+                {/* <h1 className="text-5xl font-bold text-center mb-16">CART</h1> */}
+                <div className="overflow-x-hidden max-w-7xl mx-auto">
                     <table className="table table-zebra">
                         {/* head */}
                         <thead>
                             <tr>
                                 {/* <th></th> */}
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Brand Name</th>
-                                <th>Type</th>
-                                <th>Price</th>
-                                <th>Short Description</th>
-                                <th>Rating</th>
-                                <th className=''>Options</th>
+                                <th className="text-center ">Image</th>
+                                <th className="text-center ">Name</th>
+                                <th className="text-center ">Brand Name</th>
+                                <th className="text-center hidden lg:visible">Type</th>
+                                <th className="text-center ">Price</th>
+                                <th className="text-center hidden lg:visible">Short Description</th>
+                                <th className="text-center hidden lg:visible">Rating</th>
+                                <th className='text-center '>Options</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,13 +72,13 @@ export default function MyCart() {
                                     <th>
                                         <img className="object-cover h-20" src={cartItem?.image} alt="" />
                                     </th>
-                                    <th>{cartItem?.name}</th>
-                                    <th>{cartItem?.brandName}</th>
-                                    <th>{cartItem?.type}</th>
-                                    <th>{cartItem?.price}</th>
-                                    <th>{cartItem?.shortDescription}</th>
-                                    <th>{cartItem?.rating}</th>
-                                    <th>
+                                    <th className="text-center ">{cartItem?.name}</th>
+                                    <th className="text-center ">{cartItem?.brandName}</th>
+                                    <th className="text-center hidden lg:visible">{cartItem?.type}</th>
+                                    <th className="text-center ">{cartItem?.price}</th>
+                                    <th className="text-center hidden lg:visible">{cartItem?.shortDescription}</th>
+                                    <th className="text-center hidden lg:visible">{cartItem?.rating}</th>
+                                    <th className="text-center ">
                                         <button className="btn bg-red-500 text-white hover:bg-red-600" onClick={() => handleDelete(cartItem._id)}>
                                             Delete
                                         </button>
@@ -76,31 +86,20 @@ export default function MyCart() {
                                 </tr>)
 
                             }
-                            {/* row 1
-
-                            {/* row 2 */}
-                            {/* <tr>
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>Desktop Support Technician</td>
-                                <td>Purple</td>
-                            </tr> */}
-                            {/* row 3 */}
-                            {/* <tr>
-                                <th>3</th>
-                                <td>Brice Swyre</td>
-                                <td>Tax Accountant</td>
-                                <td>Red</td>
-                            </tr> */}
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div>
-                {
-
+            {/* {
+                    !cartLoaderData && <div className="text-center my-12">
+                        <button className="btn btn-success text-white" type="submit">Buy All</button>
+                    </div>
                 }
-            </div>
+                {
+                    cartLoaderData && <div className="h-full"></div>
+                } */}
+
+            {/* </> */}
         </div>
     )
 }
