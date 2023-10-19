@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 
 export default function Registration() {
-    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle } = useContext(AuthContext)
+    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle, signInByEmail } = useContext(AuthContext)
     const auth = getAuth(app);
 
     var lengthRegex = /.{6,}/; // At least 8 characters long
@@ -40,6 +40,22 @@ export default function Registration() {
                     setCurrentUser(user)
 
                     toast.success("User Created")
+                    signInByEmail(email, password)
+                        .then((userCredential) => {
+                            // Signed in 
+                            const user = userCredential.user;
+                            // ...
+                            console.log(user)
+                            toast.success("Login Successfull")
+                            setCurrentUser(user)
+                        })
+                        .catch((error) => {
+                            const errorCode = error.code;
+                            const errorMessage = error.message;
+                            console.log(errorCode)
+                            console.log(errorMessage)
+                            toast.error("Login Failed")
+                        });
                     updateProfile(auth.currentUser, {
                         displayName: name, photoURL: image
                     }).then(() => {
