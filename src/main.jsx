@@ -26,8 +26,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("https://brandshop-server-three.vercel.app/brandNames"),
-        // loader: () => fetch("http://localhost:5000/brandNames"),
+        // loader: () => fetch("https://brandshop-server-three.vercel.app/brandNames"),
+        loader: () => fetch("http://localhost:5000/brandNames"),
         element: <Home></Home>,
         // errorElement: <Error></Error>,
       },
@@ -38,13 +38,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/products/:brandName",
-        loader: ({ params }) => fetch(`https://brandshop-server-three.vercel.app/products/${params.brandName}`),
+        // loader: ({ params }) => fetch(`https://brandshop-server-three.vercel.app/products/${params.brandName}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`),
         element: <PrivateRoutes><BrandProducts></BrandProducts></PrivateRoutes>,
         errorElement: <DataNotFound></DataNotFound>,
       },
       {
         path: "/updateProducts/:updateId",
         loader: ({ params }) => fetch(`http://localhost:5000/updateProducts/${params.updateId}`),
+        // loader: ({ params }) => console.log(params.updateId),
         element: <PrivateRoutes><ProductUpdate></ProductUpdate></PrivateRoutes>,
         // errorElement: <DataNotFound></DataNotFound>,
       },
@@ -67,7 +69,6 @@ const router = createBrowserRouter([
 
   },
 ]);
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -27,7 +27,7 @@ export default function ProductUpdate() {
         console.log(rating)
 
         // Product object
-        const newProduct = {
+        const updatedProduct = {
             image,
             name,
             brandName,
@@ -36,7 +36,7 @@ export default function ProductUpdate() {
             shortDescription,
             rating
         }
-        console.log(newProduct)
+        console.log(updatedProduct)
 
         fetch(`http://localhost:5000/updateProducts/${productData._id}`, {
         // fetch('https://brandshop-server-three.vercel.app/addProducts', {
@@ -44,15 +44,19 @@ export default function ProductUpdate() {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newProduct)
+            body: JSON.stringify(updatedProduct)
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
-                    alert("Product Added")
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    alert("Product updated")
+                }
+                else if (data.upsertedCount > 0) {
+                    alert("Product updated Failed. Product Inserted")
                 }
                 else {
-                    alert("Product Add Failed")
+                    alert("Product updated Failed")
                 }
                 console.log(data)
             })
@@ -72,40 +76,40 @@ export default function ProductUpdate() {
                         <div className="grid grid-cols-1 md:grid-cols-1 gap-y-6">
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Image</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0 " name="Image" placeholder="Image" />
+                                <input defaultValue={productData.image} type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0 " name="Image" placeholder="Image" />
                             </div>
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Name</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0 " name="Name" placeholder="Name" />
+                                <input defaultValue={productData.name} type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0 " name="Name" placeholder="Name" />
                             </div>
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Brand Name</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="BrandName" placeholder="Brand Name" />
+                                <input defaultValue={productData.brandName} type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="BrandName" placeholder="Brand Name" />
                             </div>
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Type</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="Type" placeholder="Type" />
+                                <input defaultValue={productData.type} type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="Type" placeholder="Type" />
                             </div>
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Price</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="Price" placeholder="Price" />
+                                <input defaultValue={productData.price} type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="Price" placeholder="Price" />
                             </div>
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Short Description</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="ShortDescription" placeholder="Short Description" />
+                                <input defaultValue={productData.shortDescription} type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="ShortDescription" placeholder="Short Description" />
                             </div>
                             <div className="flex flex-col items-start w-full gap-3">
                                 <label className="text-3xl font-bold">Rating</label>
-                                <input type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="Rating" placeholder="Rating" />
+                                <input defaultValue={productData.rating} type="text" className="p-4 rounded-md w-full md:w-11/12  mr-0" name="Rating" placeholder="Rating" />
                             </div>
                             <div className=" mt-12 flex flex-col items-start w-full gap-3">
-                                <button className="btn btn-success p-4 rounded-md w-full md:w-11/12  mr-0 text-white" type="submit">Add Product</button>
+                                <button className="btn btn-success p-4 rounded-md w-full md:w-11/12  mr-0 text-white" type="submit">Update Product</button>
                             </div>
                         </div>
                         {/* <div className="md:pr-10">
                             <div className="flex flex-col items-start w-full gap-3 my-6">
                                 <label className="text-3xl font-bold"></label>
-                                <input type="text" className="p-4 rounded-md mr-0 w-full" name="Photo" placeholder="Photo" />
+                                <input defaultValue={productData.name} type="text" className="p-4 rounded-md mr-0 w-full" name="Photo" placeholder="Photo" />
                             </div>
                         </div> */}
 
