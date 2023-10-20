@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigate } from "react-router-dom"
 import { AuthContext } from "../Provider/AuthProvider"
 import { data } from "autoprefixer"
 import toast from "react-hot-toast"
@@ -10,6 +10,7 @@ export default function ProductDetails() {
     console.log(productDetailsData)
     const { _id, image, name, brandName, type, price, shortDescription, rating } = productDetailsData
     const { cart, setCart, cartList } = useContext(AuthContext)
+    const navigate = useNavigate();
     const handleAddToCart = () => {
         // cartList.push(productDetailsData)
         // console.log(productDetailsData)
@@ -31,6 +32,7 @@ export default function ProductDetails() {
                 if(data.insertedId) {
                     // alert("Add To Cart Successfull")
                     toast.success('Add To Cart Successfull')
+                    navigate(-1);
                 }
                 else {
                     toast.error('Add To Cart Failed')
