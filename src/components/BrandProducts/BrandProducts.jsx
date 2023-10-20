@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useLoaderData, useParams } from "react-router-dom"
 import BrandNameCard from "../BrandNameCard/BrandNameCard"
 import ProductCard from "../ProductCard/ProductCard"
+import { AuthContext } from "../Provider/AuthProvider"
 
 
 export default function BrandProducts() {
@@ -15,11 +16,13 @@ export default function BrandProducts() {
     const [brandProducts, setBrandProducts] = useState(brandProductsLoaderData)
     console.log(brandProducts)
 
+    const { isDarkModeFunc } = useContext(AuthContext)
+
     return (
-        <div>
+        <div className={isDarkModeFunc ? " bg-violet-950 text-white" : ""}>
             {/* {brandProducts.length} */}
             <div>
-                <div className=" flex justify-center my-10">
+                <div className=" flex justify-center py-10">
                     <div className="carousel h-[500px] max-w-7xl w-11/12 ">
                         {/* Slide1 */}
                         <div id="slide1" className="carousel-item relative w-full ">
@@ -46,7 +49,7 @@ export default function BrandProducts() {
 
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto mb-10">
+                <div className="max-w-7xl mx-auto pb-10">
                     <h1 className="my-16 text-7xl text-center font-bold">{brandProducts[0].brandName} Products</h1>
                     {
                         brandProducts.length && <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-y-16 w-fit gap-x-20 mx-auto">

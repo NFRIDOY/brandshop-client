@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 
 export default function MyCart() {
-    const { test, count, setCount, cart, setCart } = useContext(AuthContext)
+    const { test, count, setCount, cart, setCart, isDarkModeFunc } = useContext(AuthContext)
     const cartLoaderData = useLoaderData();
     const [cartList, setCartList] = useState(cartLoaderData)
     console.log(cartList)
@@ -45,15 +45,15 @@ export default function MyCart() {
 
 
     return (
-        <div>
+        <div className={isDarkModeFunc ? "" : ""}>
             {/* < onSubmit={handleBuyAll}> */}
-            <div>
+            <div >
                 {/* <h1 className="text-5xl font-bold text-center mb-16">CART</h1> */}
                 <div className="overflow-x-hidden max-w-7xl mx-auto">
-                    <table className="table table-zebra">
+                    <table className=  {isDarkModeFunc ? "table table-zebra" : "table table-zebra" }>
                         {/* head */}
-                        <thead>
-                            <tr>
+                        <thead >
+                            <tr className={isDarkModeFunc ? "": ""}>
                                 {/* <th></th> */}
                                 <th className="text-center ">Image</th>
                                 <th className="text-center ">Name</th>
