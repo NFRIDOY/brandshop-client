@@ -54,7 +54,7 @@ export default function Home() {
                 </h1>
                 <div className="mx-auto">
                     {
-                        !loading ? (brandNames && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-16  ">
+                        !loading ? (brandNames && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 lg:gap-y-16  ">
                             {
                                 brandNames && brandNames.slice(2, 5)?.map(brand => <BrandNameCard key={brand._id} brand={brand} ></BrandNameCard>) // : <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
                             }
