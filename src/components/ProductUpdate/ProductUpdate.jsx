@@ -1,10 +1,11 @@
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
 export default function ProductUpdate() {
     const productData = useLoaderData()
     console.log(productData)
+    const navigate = useNavigate();
     const handleUpdateProduct = (e) => {
         e.preventDefault();
         console.log("Add Coffee");
@@ -52,10 +53,12 @@ export default function ProductUpdate() {
                 console.log(data)
                 if (data.modifiedCount > 0) {
                     toast.success("Product updated")
+                    navigate(-1);
                 }
                 else if (data.upsertedCount > 0) {
                     toast.error("Product updated Failed.")
                     toast.success("Product Inserted")
+                    navigate(-1);
                 }
                 else {
                     toast.error("Product updated Failed.")
@@ -65,6 +68,8 @@ export default function ProductUpdate() {
 
         // Reset form
         // form.reset();
+        
+
     }
     return (
         <div className="max-w-6xl mx-auto p-8 text-center">
