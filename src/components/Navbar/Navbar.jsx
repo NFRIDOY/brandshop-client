@@ -155,7 +155,7 @@ export default function Navbar() {
                                     toast.success("Dark")
                                 }}>
                                     {
-                                        isDarkModeFunc ? "Dark" : "Light"
+                                        isDarkModeFunc ? "Light" : "Dark"
                                     }
                                 </button>
                             </span>

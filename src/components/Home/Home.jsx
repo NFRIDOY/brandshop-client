@@ -27,7 +27,7 @@ export default function Home() {
     //     })
 
     return (
-        <div className={isDarkModeFunc ? "bg-black" : ""}>
+        <div className={isDarkModeFunc ? "bg-violet-950" : ""}>
             {/* <div> */}
             {/* <DarkModeToggle
                 onChange={setIsDarkMode}
@@ -38,7 +38,7 @@ export default function Home() {
             {/* <input type="checkbox" className="toggle" checked /> */}
 
             <div className="max-w-7xl mx-auto p-8 text-center ">
-                <h1 className="my-8 text-8xl font-bold">Our Brands</h1>
+                <h1 className={isDarkModeFunc ? "my-8 text-8xl font-bold text-white" : "my-8 text-8xl font-bold "} >Our Brands</h1>
                 {
                     !loading ? (brandNames && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 lg:gap-y-16">
                         {
@@ -48,7 +48,7 @@ export default function Home() {
                 }
 
             </div>
-            <div className="max-w-7xl mx-auto p-8 text-center ">
+            <div className={isDarkModeFunc ? "max-w-7xl mx-auto p-8 text-center text-gray-400" : "max-w-7xl mx-auto p-8 text-center"}>
                 <h1 className="my-8 text-5xl font-bold">
                     Top Brands
                 </h1>
@@ -62,7 +62,7 @@ export default function Home() {
                     }
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto p-8 text-center ">
+            <div className={isDarkModeFunc ? "max-w-7xl mx-auto p-8 text-center text-gray-400" : "max-w-7xl mx-auto p-8 text-center"}>
                 <h1 className="my-8 text-3xl font-bold">
                     Leading Computer, Laptop & Gaming PC Retail & Online Shop In The World
                 </h1>
@@ -70,7 +70,7 @@ export default function Home() {
                     Technology has become a part of our daily lives, and we depend on tech products daily for a vast portion of our lives. There is hardly a home In The World without a tech product. This is where we come in. NF Technology Ltd. started as a Tech Product Shop  in March 2007. We focus on giving the best customer service In The World, following our motto of “Customer Comes First.” This is why NF Technology is the most trusted computer shop In The World today, capturing the loyalty of a large customer base. After a long 16-year journey, NF Technology Ltd. was certified with the renowned &quot;ISO 9001:2015 certification&quot; as a recognition for the best Quality Control Management System. As an ISO-certified organization, NF Technology Ltd. is now up to the international standards that specify a Quality Management System (QMS). This Certification denotes that the organization strictly maintains all sorts of regulatory requirements to provide customers with products and services of a global standard.
                 </p>
             </div>
-            <div className="max-w-7xl mx-auto p-8 text-center ">
+            <div className={isDarkModeFunc ? "max-w-7xl mx-auto p-8 text-center text-gray-400" : "max-w-7xl mx-auto p-8 text-center"}>
                 <h1 className="my-8 text-5xl font-bold">
                     Why We Are Best
                 </h1>
