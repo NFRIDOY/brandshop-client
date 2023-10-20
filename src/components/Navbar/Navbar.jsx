@@ -14,7 +14,7 @@ export default function Navbar() {
     return (
         <div className={isDarkModeFunc ? "w-full bg-violet-950" : ""}>
             <div className={isDarkModeFunc ? "max-w-7xl mx-auto p-8 text-center bg-violet-950" : "max-w-7xl mx-auto p-8 text-center"}>
-                <div className={isDarkModeFunc ?"navbar rounded-lg bg-violet-950 text-white ": "navbar bg-base-100"}>
+                <div className={isDarkModeFunc ? "navbar rounded-lg bg-violet-950 text-white " : "navbar bg-base-100"}>
                     <div className="navbar-start">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -145,6 +145,7 @@ export default function Navbar() {
                                 </NavLink>
                             </li>
                             <li>
+                                {/* Dark Mode Btn */}
                                 <span
                                 // className={({ isActive, isPending }) =>
                                 //     isPending ? "pending" : isActive ? "active" : ""
@@ -165,8 +166,31 @@ export default function Navbar() {
                                     <button className="" onClick={() => {
                                         console.log(isDarkModeFunc)
                                         setIsDarkModeFunc(!isDarkModeFunc)
-                                        console.log(isDarkModeFunc)
-                                        toast.success("Mode Changed")
+                                        // let mode;
+                                        // // const getMode = () => {
+                                        // mode = localStorage.getItem("mode")
+                                        // console.log(mode)
+                                        // // }
+                                        // if (mode) {
+                                        //     localStorage.setItem("mode", false)
+                                        //     toast.success("Mode Null")
+                                        // }
+                                        // else {
+                                        //     // localStorage.setItem("mode", setIsDarkModeFunc(true))
+                                        //     toast.success("Mode Else")
+
+                                        // }
+                                        // console.log(isDarkModeFunc)
+                                        {
+                                            isDarkModeFunc ? toast.success("Light Mode") : toast.success("Hello Darkness", {
+                                                icon: '👏',
+                                                style: {
+                                                    borderRadius: '10px',
+                                                    background: '#333',
+                                                    color: '#fff',
+                                                },
+                                            })
+                                        }
                                     }}>
                                         {
                                             isDarkModeFunc ? "Light" : "Dark"
