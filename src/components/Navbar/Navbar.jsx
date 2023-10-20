@@ -16,9 +16,9 @@ export default function Navbar() {
             <div className={isDarkModeFunc ? "max-w-7xl mx-auto p-8 text-center bg-violet-950" : "max-w-7xl mx-auto p-8 text-center"}>
                 <div className={isDarkModeFunc ? "navbar rounded-lg bg-violet-950 text-white " : "navbar bg-base-100"}>
                     <div className="navbar-start">
-                        <div className="dropdown">
+                        <div className= {isDarkModeFunc ? "dropdown text-black bg-violet-950" : "dropdown text-white"}>
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
