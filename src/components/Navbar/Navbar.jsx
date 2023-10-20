@@ -13,7 +13,7 @@ export default function Navbar() {
     }
     return (
         <div className={isDarkModeFunc ? "w-full bg-violet-950" : ""}>
-            <div className={isDarkModeFunc ? "max-w-7xl mx-auto p-8 text-center bg-violet-950" : "max-w-7xl mx-auto p-8 text-center"}>
+            <div className="w-full max-w-7xl mx-auto p-8 text-center">
                 <div className={isDarkModeFunc ? "navbar rounded-lg bg-violet-950 text-white " : "navbar bg-base-100"}>
                     <div className="navbar-start ">
                         <div className= {isDarkModeFunc ? "dropdown text-black bg-violet-950" : "dropdown text-black"}>
