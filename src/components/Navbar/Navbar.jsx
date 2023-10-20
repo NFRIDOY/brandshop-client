@@ -1,11 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '/Logo.png'
 import { AuthContext } from "../Provider/AuthProvider";
-import { useContext } from "react";
-
+import { useContext, useState } from "react";
+import DarkModeToggle from "react-dark-mode-toggle";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
-    const { test, currentUser, setCurrentUser, signOutUser } = useContext(AuthContext)
+    const { test, currentUser, setCurrentUser, signOutUser, isDarkMode, setIsDarkMode, isDarkModeFunc, setIsDarkModeFunc } = useContext(AuthContext)
+    // const [isDarkMode, setIsDarkMode] = useState(() => false);
+    const handleDarkMode = () => {
+        setIsDarkMode()
+    }
     return (
         <div className="max-w-7xl mx-auto p-8 text-center">
             <div className="navbar bg-base-100">
@@ -124,6 +129,37 @@ export default function Navbar() {
                                 Login
                             </NavLink>
                         </li>
+                        <li>
+                            <span
+                                to="/login"
+                            // className={({ isActive, isPending }) =>
+                            //     isPending ? "pending" : isActive ? "active" : ""
+                            // }
+                            >
+                                {/* <input type="checkbox" className="toggle" checked /> */}
+                                {/* <DarkModeToggle
+                                    onChange={setIsDarkMode}
+                                    checked={isDarkMode}
+                                    size={50}
+                                    onClick={() => {
+                                        console.log(isDarkModeFunc)
+                                        setIsDarkModeFunc(!isDarkModeFunc)
+                                        console.log(isDarkModeFunc)
+                                        toast.success("Toggle")
+                                    }}
+                                /> */}
+                                <button className="" onClick={() => {
+                                    console.log(isDarkModeFunc)
+                                    setIsDarkModeFunc(!isDarkModeFunc)
+                                    console.log(isDarkModeFunc)
+                                    toast.success("Dark")
+                                }}>
+                                    {
+                                        isDarkModeFunc ? "Dark" : "Light"
+                                    }
+                                </button>
+                            </span>
+                        </li>
 
                     </ul>
                 </div>
@@ -142,6 +178,9 @@ export default function Navbar() {
                                 <img className=" bg-neutral-focus text-neutral-content rounded-full ring ring-accent hover:ring-error ring-offset-base-100 ring-offset-2" src={currentUser?.photoURL} alt="" />
                             </span>
                         }
+                    </span>
+                    <span>
+
                     </span>
                     {
                         currentUser?.uid ? <button className="rounded-md btn-ghost font-bold text-red-600 text-sm p-2 " onClick={signOutUser}>Log Out</button> : <Link to={'/login'} className="btn" >Log In</Link>

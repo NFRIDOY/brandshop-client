@@ -11,6 +11,9 @@ export default function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState();
     const cartList = [];
+    const [isDarkMode, setIsDarkMode] = useState(() => false);
+    const [isDarkModeFunc, setIsDarkModeFunc] = useState(false);
+    // const [isDarkModeFunc, setIsDarkModeFunc] = useState(() => false);
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
@@ -93,7 +96,7 @@ export default function AuthProvider({ children }) {
 
 
     const test = 10
-    const infoValue = { test, currentUser, setCurrentUser, createUserByEmail, signInByEmail, signInGoogle, signOutUser,loading, setLoading, cart, setCart, cartList };
+    const infoValue = { test, currentUser, setCurrentUser, createUserByEmail, signInByEmail, signInGoogle, signOutUser,loading, setLoading, cart, setCart, cartList, isDarkMode, setIsDarkMode, isDarkModeFunc, setIsDarkModeFunc };
     return (
         <AuthContext.Provider value={infoValue}>
             {children}

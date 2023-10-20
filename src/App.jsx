@@ -5,12 +5,18 @@ import viteLogo from '/vite.svg'
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+// import DarkModeToggle from "react-dark-mode-toggle";
 
 function App() {
-
+  // const [isDarkMode, setIsDarkMode] = useState(() => false);
 
   return (
     <>
+      {/* <DarkModeToggle
+        onChange={setIsDarkMode}
+        checked={isDarkMode}
+        size={80}
+      /> */}
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

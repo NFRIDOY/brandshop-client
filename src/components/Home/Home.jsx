@@ -5,11 +5,13 @@ import { data } from "autoprefixer";
 import BrandNameCard from "../BrandNameCard/BrandNameCard";
 import { useLoaderData } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import DarkModeToggle from "react-dark-mode-toggle";
 
 
 export default function Home() {
+    // const [isDarkMode, setIsDarkMode] = useState(() => false);
     const brandsLoaderData = useLoaderData()
-    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle, loading, setLoading } = useContext(AuthContext)
+    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle, loading, setLoading, isDarkModeFunc, setIsDarkModeFunc } = useContext(AuthContext)
     const [brandNames, setBrandNames] = useState(brandsLoaderData)
     if (brandNames) {
         setLoading(false)
@@ -23,9 +25,18 @@ export default function Home() {
     //         setBrandNames(data)
     //         console.log(data)
     //     })
+
     return (
-        <div>
+        <div className={isDarkModeFunc ? "bg-black" : ""}>
+            {/* <div> */}
+            {/* <DarkModeToggle
+                onChange={setIsDarkMode}
+                checked={isDarkMode}
+                size={80}
+            /> */}
             <Banner></Banner>
+            {/* <input type="checkbox" className="toggle" checked /> */}
+
             <div className="max-w-7xl mx-auto p-8 text-center ">
                 <h1 className="my-8 text-8xl font-bold">Our Brands</h1>
                 {
@@ -45,7 +56,7 @@ export default function Home() {
                     {
                         !loading ? (brandNames && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-16  ">
                             {
-                                brandNames && brandNames.slice(2,5)?.map(brand => <BrandNameCard key={brand._id} brand={brand} ></BrandNameCard>) // : <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
+                                brandNames && brandNames.slice(2, 5)?.map(brand => <BrandNameCard key={brand._id} brand={brand} ></BrandNameCard>) // : <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
                             }
                         </div>) : <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
                     }
