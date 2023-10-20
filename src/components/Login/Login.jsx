@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 
 export default function Login() {
-    const { test, currentUser, setCurrentUser, signInByEmail, signInGoogle } = useContext(AuthContext)
+    const { test, currentUser, setCurrentUser, signInByEmail, signInGoogle,isDarkModeFunc } = useContext(AuthContext)
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -44,7 +44,7 @@ export default function Login() {
         signInGoogle()
     }
     return (
-        <div>
+        <div className={isDarkModeFunc ? "bg-violet-950 text-white" : " "}>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row gap-x-20">
                     <div className="text-center lg:text-left">

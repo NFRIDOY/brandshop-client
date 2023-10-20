@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 
 export default function Registration() {
-    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle, signInByEmail } = useContext(AuthContext)
+    const { test, currentUser, setCurrentUser, createUserByEmail, signInGoogle, signInByEmail, isDarkModeFunc } = useContext(AuthContext)
     const auth = getAuth(app);
 
     var lengthRegex = /.{6,}/; // At least 8 characters long
@@ -86,7 +86,7 @@ export default function Registration() {
 
     }
     return (
-        <div>
+        <div className={isDarkModeFunc ? "bg-violet-950 text-white" : " "}>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse gap-x-20">
                     <div className="text-center lg:text-left">
