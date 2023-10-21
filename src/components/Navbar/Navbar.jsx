@@ -182,8 +182,8 @@ export default function Navbar() {
                                         // }
                                         // console.log(isDarkModeFunc)
                                         {
-                                            isDarkModeFunc ? toast.success("Light Mode") : toast.success("Hello Darkness", {
-                                                icon: '👏',
+                                            isDarkModeFunc ? toast.success("Light Mode") : toast.success(" Dark Mode", {
+                                                icon: 'X',
                                                 style: {
                                                     borderRadius: '10px',
                                                     background: '#333',
@@ -212,7 +212,7 @@ export default function Navbar() {
                         </span>
                         <span className="avatar placeholder ">
                             {
-                                currentUser?.photoURL && <span onClick={signOutUser} className="mx-1 w-4 lg:w-8" >
+                                currentUser?.photoURL && <span className="mx-1 w-4 lg:w-8" >
                                     <img className=" bg-neutral-focus text-neutral-content rounded-full ring ring-accent hover:ring-error ring-offset-base-100 ring-offset-2" src={currentUser?.photoURL} alt="" />
                                 </span>
                             }

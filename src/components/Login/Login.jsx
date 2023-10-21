@@ -74,7 +74,7 @@ export default function Login() {
                             <div className="form-control mt-6">
                                 <Link to={'/registration'} className="btn btn-primary text-white hover:bg-black hover:border-black" >Need An Account? Register</Link>
                             </div>
-                            <span className="text-center">OR</span>
+                            <span className="text-center text-black">OR</span>
                             <div className="form-control mt-1">
                                 <button onClick={hangleGoogleSignIn} className="btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" >Google</button>
                             </div>
