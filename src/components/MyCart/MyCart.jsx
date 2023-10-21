@@ -5,13 +5,14 @@ import toast from "react-hot-toast";
 
 
 export default function MyCart() {
-    const { test, count, setCount, cart, setCart, isDarkModeFunc } = useContext(AuthContext)
+    const { currentUser, cart, setCart, isDarkModeFunc } = useContext(AuthContext)
     const cartLoaderData = useLoaderData();
-    const [cartList, setCartList] = useState(cartLoaderData)
+    const userCart = cartLoaderData.filter(loaderProduct => currentUser.email === loaderProduct.email)
+    const [cartList, setCartList] = useState(userCart)
     console.log(cartList)
     // const { _id, image, name, brandName, type, price, shortDescription, rating } = cartList;
     // console.log(name)
-
+    
     const handleDelete = (id) => {
         fetch(`https://brandshop-server-three.vercel.app/myCart/${id}`, {
             method: 'DELETE',

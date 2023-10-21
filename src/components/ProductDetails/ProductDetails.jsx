@@ -9,12 +9,13 @@ export default function ProductDetails() {
     const productDetailsData = useLoaderData()
     console.log(productDetailsData)
     const { _id, image, name, brandName, type, price, shortDescription, rating } = productDetailsData
-    const { cart, setCart, cartList } = useContext(AuthContext)
+    const { currentUser, cart, setCart, cartList } = useContext(AuthContext)
     const navigate = useNavigate();
     const handleAddToCart = () => {
         // cartList.push(productDetailsData)
         // console.log(productDetailsData)
-        const addProductToCart = { product_id:_id, image, name, brandName, type, price, shortDescription, rating}
+        // console.log(currentUser.email)
+        const addProductToCart = { email: currentUser.email,product_id:_id, image, name, brandName, type, price, shortDescription, rating}
         // setCart(cartList)
         // alert("Add To Cart Btn")
 
