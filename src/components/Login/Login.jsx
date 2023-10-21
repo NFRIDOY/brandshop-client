@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 
 export default function Login() {
     const { test, currentUser, setCurrentUser, signInByEmail, signInGoogle,isDarkModeFunc } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -21,6 +23,7 @@ export default function Login() {
                 console.log(user)
                 toast.success("Login Successfull")
                 setCurrentUser(user)
+                navigate(location?.state ? location?.state : '/')
             })
             .catch((error) => {
                 const errorCode = error.code;
