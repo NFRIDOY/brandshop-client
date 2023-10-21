@@ -238,7 +238,7 @@ export default function Navbar() {
                             }
                         </span>
                         {
-                            currentUser?.uid ? <button className="rounded-md btn-ghost font-bold text-red-600 text-sm p-2 hidden lg:block" onClick={signOutUser}>Log Out</button> : <Link to={'/login'} className="btn hidden lg:block" >Log In</Link>
+                            currentUser?.uid ? <button className="rounded-md btn-ghost font-bold text-red-600 text-sm p-2 hidden lg:block" onClick={signOutUser}>Log Out</button> : <Link to={'/login'} className="rounded-md btn-ghost font-bold text-sm p-2 hidden lg:block" >Log In</Link>
                         }
 
                         {/* <a className="btn" onClick={() => setCount(count+1)}>Sign Out { count }</a> */}
