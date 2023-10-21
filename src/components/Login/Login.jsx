@@ -2,10 +2,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 
 export default function Login() {
-    const { test, currentUser, setCurrentUser, signInByEmail, signInGoogle,isDarkModeFunc } = useContext(AuthContext)
+    const { setLoading, currentUser, setCurrentUser, signInByEmail, signInGoogle, isDarkModeFunc } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -40,12 +42,40 @@ export default function Login() {
                 //     toast.error("Login Failed Other")
                 // }
             });
-            
+
     }
 
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
     const hangleGoogleSignIn = () => {
-        signInGoogle()
+        // signInGoogle()
+        setLoading(true)
+        // return signInWithPopup(auth, googleProvider)
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+                toast.success("Google Sign In")
+                navigate(location?.state ? location?.state : '/')
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+
+                toast.error("Google Sign In Failed")
+            });
     }
+
     return (
         <div className={isDarkModeFunc ? "bg-violet-950 text-white" : " "}>
             <div className="hero min-h-screen ">
