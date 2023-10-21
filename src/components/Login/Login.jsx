@@ -85,34 +85,38 @@ export default function Login() {
                         {/* <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> */}
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body" onSubmit={handleLogin}>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                                {/* <label className="label">
+                        <div className="card-body">
+                            <form onSubmit={handleLogin}>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                    {/* <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label> */}
+                                </div>
+                                <div className="form-control mt-1">
+                                    <button className="btn btn-accent text-white hover:bg-black hover:border-black" type="submit">Login</button>
+                                </div>
+                            </form>
+                            <div className="flex flex-col">
+                                {/* <div className="mx-auto w-full mt-6"> */}
+                                <Link to={'/registration'} className=" mt-6 btn btn-primary text-white hover:bg-black hover:border-black" >Need An Account? Register Here</Link>
+                                {/* </div> */}
+                                <span className="text-center text-black">OR</span>
+                                {/* <div className="mx-auto w-full mt-1"> */}
+                                <button onClick={hangleGoogleSignIn} className="mt-1 btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" >Google</button>
+                                {/* </div> */}
                             </div>
-                            <div className="form-control mt-1">
-                                <button className="btn btn-accent text-white hover:bg-black hover:border-black" type="submit">Login</button>
-                            </div>
-                            <div className="form-control mt-6">
-                                <Link to={'/registration'} className="btn btn-primary text-white hover:bg-black hover:border-black" >Need An Account? Register</Link>
-                            </div>
-                            <span className="text-center text-black">OR</span>
-                            <div className="form-control mt-1">
-                                <button onClick={hangleGoogleSignIn} className="btn btn-success btn-outline outline-success text-white hover:bg-black hover:border-black" >Google</button>
-                            </div>
+                        </div>
 
-                        </form>
                     </div>
                 </div>
             </div>
