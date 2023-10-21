@@ -50,8 +50,8 @@ export default function MyCart() {
             {/* < onSubmit={handleBuyAll}> */}
             <div >
                 {/* <h1 className="text-5xl font-bold text-center mb-16">CART</h1> */}
-                <div className="overflow-x-hidden max-w-7xl mx-auto">
-                    <table className=  {isDarkModeFunc ? "table table-zebra" : "table table-zebra" }>
+                <div className="overflow-x-scroll max-w-7xl mx-auto ">
+                    <table className=  {isDarkModeFunc ? "table table-zebra table-xs" : "table table-zebra table-xs" }>
                         {/* head */}
                         <thead >
                             <tr className={isDarkModeFunc ? "": ""}>
