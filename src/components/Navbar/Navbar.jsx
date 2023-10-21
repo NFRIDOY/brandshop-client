@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className="w-full max-w-7xl mx-auto p-8 text-center">
                 <div className={isDarkModeFunc ? "navbar rounded-lg bg-violet-950 text-white " : "navbar bg-base-100"}>
                     <div className="navbar-start ">
-                        <div className= {isDarkModeFunc ? "dropdown text-black bg-violet-950" : "dropdown text-black"}>
+                        <div className={isDarkModeFunc ? "dropdown text-black bg-violet-950" : "dropdown text-black"}>
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className={isDarkModeFunc ? "h-5 w-5 text-white" : "h-5 w-5 text-black"} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
@@ -203,25 +203,42 @@ export default function Navbar() {
                     </div>
                     <div className="navbar-end">
 
-                        <span>
+                        {/* <span>
                             {
                                 currentUser?.displayName && <span className="mx-1 font-bold hidden lg:block">
                                     {currentUser?.displayName}
                                 </span>
                             }
-                        </span>
-                        <span className="avatar placeholder ">
+                        </span> */}
+                        {/* <span className="avatar placeholder ">
                             {
                                 currentUser?.photoURL && <span className="mx-1 w-4 lg:w-8" >
                                     <img className=" bg-neutral-focus text-neutral-content rounded-full ring ring-accent hover:ring-error ring-offset-base-100 ring-offset-2" src={currentUser?.photoURL} alt="" />
                                 </span>
                             }
-                        </span>
+                        </span> */}
                         <span>
-
+                            {
+                                currentUser?.photoURL ? <div className="dropdown dropdown-end ">
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
+                                        <div className="w-10 rounded-full ring ring-primary">
+                                            <img src={currentUser?.photoURL} />
+                                        </div>
+                                    </label>
+                                    <ul tabIndex={0} className={isDarkModeFunc ? "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black" : "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-inherit "}>
+                                        <li>
+                                            <a className="justify-between">
+                                                {currentUser?.displayName && currentUser?.displayName }
+                                                {/* <span className="badge">New</span> */}
+                                            </a>
+                                        </li>
+                                        <li onClick={signOutUser} className={isDarkModeFunc ? "text-black" : "text-inherit"}><a>Logout</a></li>
+                                    </ul>
+                                </div> : <div>{currentUser?.displayName && currentUser?.displayName }</div>
+                            }
                         </span>
                         {
-                            currentUser?.uid ? <button className="rounded-md btn-ghost font-bold text-red-600 text-sm p-2 " onClick={signOutUser}>Log Out</button> : <Link to={'/login'} className="btn" >Log In</Link>
+                            currentUser?.uid ? <button className="rounded-md btn-ghost font-bold text-red-600 text-sm p-2 hidden lg:block" onClick={signOutUser}>Log Out</button> : <Link to={'/login'} className="btn hidden lg:block" >Log In</Link>
                         }
 
                         {/* <a className="btn" onClick={() => setCount(count+1)}>Sign Out { count }</a> */}
