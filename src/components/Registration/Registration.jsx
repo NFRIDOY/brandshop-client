@@ -88,12 +88,12 @@ export default function Registration() {
     return (
         <div className={isDarkModeFunc ? "bg-violet-950 text-white" : " "}>
             <div className="hero min-h-screen ">
-                <div className="hero-content flex-col lg:flex-row-reverse gap-x-20">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Registration now!</h1>
+                <div className="hero-content flex-col lg:flex-row-reverse gap-x-20 w-full  ">
+                    <div className="text-center lg:text-center w-1/2 ">
+                        <h1 className="text-5xl font-bold lg:w-full">Registration Now!</h1>
                         {/* <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> */}
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 lg:w-1/2">
                         <form className="card-body" onSubmit={handleReg}>
                             <div className="form-control">
                                 <label className="label">
